@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-//Get All Movies GET --DONE
+//Get All Movies GET --DONE Stretch Goals 2, Done.
 app.get("/all-movies", (req, res)=>{
 
     console.log(req.query);
@@ -58,7 +58,7 @@ app.get("/single-movie/:title", (req, res)=>{
 	})
 })
 
-//Add New Movie POST --DONE. Stretch Goals: 1. DONE, 2. Not Done. I know how to test it in Postman, but had no idea how to code it. Did I miss something? I tried searching the internet but couldn't find what I was looking for.
+//Add New Movie POST --DONE. Stretch Goals: 1. DONE. 
 app.post("/new-movie", (req, res)=>
 {
     //Validation Code:
