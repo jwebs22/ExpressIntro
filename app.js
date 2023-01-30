@@ -6,6 +6,7 @@ const port = 3000
 
 app.use(express.json()) // This line is necessary for Express to be able to parse JSON in request body's
 
+//this is your data source that the routes below will be operating on.
 const favoriteMovieList = [{
   title: "Star Wars",
   starRating: 5,
@@ -27,11 +28,20 @@ app.get('/', (req, res) => {
 //Get All Movies GET --DONE
 app.get("/all-movies", (req, res)=>{
 
-    console.log(req.params.starRating);
+    console.log(req.query);
+    const starRating = Number(req.query.starRating)
+    console.log(starRating);
+
+    const filteredMoviesByStar = favoriteMovieList.filter((movie)=>
+    {
+        return movie.starRating >= starRating
+    })
+
+    console.log(filteredMoviesByStar);
 
 	res.json({
 		success: true,
-		favoriteMovieList: favoriteMovieList
+		favoriteMovieList: filteredMoviesByStar
 	})
 })
 
