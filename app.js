@@ -26,6 +26,9 @@ app.get('/', (req, res) => {
 
 //Get All Movies GET --DONE
 app.get("/all-movies", (req, res)=>{
+
+    console.log(req.params.starRating);
+
 	res.json({
 		success: true,
 		favoriteMovieList: favoriteMovieList
@@ -45,7 +48,7 @@ app.get("/single-movie/:title", (req, res)=>{
 	})
 })
 
-//Add New Movie POST --DONE. Stretch Goals: 1. DONE, 2. Not Done
+//Add New Movie POST --DONE. Stretch Goals: 1. DONE, 2. Not Done. I know how to test it in Postman, but had no idea how to code it. Did I miss something? I tried searching the internet but couldn't find what I was looking for.
 app.post("/new-movie", (req, res)=>
 {
     //Validation Code:
