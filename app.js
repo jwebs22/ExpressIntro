@@ -26,12 +26,15 @@ app.get('/', (req, res) => {
 })
 
 //Get All Movies GET --DONE Stretch Goals 2, Done.
+
 app.get("/all-movies", (req, res)=>{
 
     console.log(req.query);
     const starRating = Number(req.query.starRating)
     console.log(starRating);
 
+    if (starRating)
+    {
     const filteredMoviesByStar = favoriteMovieList.filter((movie)=>
     {
         return movie.starRating >= starRating
@@ -43,6 +46,14 @@ app.get("/all-movies", (req, res)=>{
 		success: true,
 		favoriteMovieList: filteredMoviesByStar
 	})
+    } else
+    {
+        res.json({
+            success: true,
+            favoriteMovieList: favoriteMovieList
+        })
+
+    }
 })
 
 //Get Single Movie GET --DONE
